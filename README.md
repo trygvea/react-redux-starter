@@ -66,4 +66,10 @@ Plain but necessary stuff.
 See it hot load!
 
 
-## Next step: Add barebone redux
+## Step 3: Add barebone redux
+It contains all the elements of a redux app, such as a store, actions and reducers,
+but it remains naiive on state handling - hot-reload resets all state.
+We will change that later.
+
+
+## Next step: Refactor for scaling
