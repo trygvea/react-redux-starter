@@ -61,4 +61,9 @@ If a step contains changes in webpack.config.js, you will need to restart `webpa
 Run `npm install`, `webpack-dev-server`, and go to 127.0.0.1:8080. Make som changes and see the hot reload in action!
 
 
-## Next step: Add packaging for css and less
+## Step 2: Add packaging for css and less
+Plain but necessary stuff.
+See it hot load!
+
+
+## Next step: Add barebone redux
