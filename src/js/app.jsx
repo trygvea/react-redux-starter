@@ -2,34 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import { Provider, connect } from 'react-redux'
+import HelloRedux from './components/helloRedux'
+import rootReducer from './reducers';
 
-const reducer = (state = {counter:0}, action = {}) => {
-    switch (action.type) {
-        case 'INCREMENT':
-            return {counter: state.counter+1}
-        default:
-            return state
-    }
-}
+require("../style/app.css")
 
-const store = createStore(reducer)
-
-const HelloRedux = props =>
-    <div className="hello">
-        <h1>Hello {props.greet}</h1>
-        <button onClick={props.onIncrement}>
-            {props.value}
-        </button>
-    </div>
-
-const HelloReduxContainer = connect(
-        state => ({ value: state.counter }),
-        dispatch => ({ onIncrement: () => dispatch({type:'INCREMENT'}) })
-)(HelloRedux)
+const store = createStore(rootReducer)
 
 ReactDOM.render(
     <Provider store={store}>
-        <HelloReduxContainer />
+        <HelloRedux />
     </Provider>,
     document.getElementById('app')
 )

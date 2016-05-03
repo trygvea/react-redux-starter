@@ -72,4 +72,16 @@ but it remains naiive on state handling - hot-reload resets all state.
 We will change that later.
 
 
-## Next step: Refactor for scaling
+As usual, you run it with
+- npm install
+- webpack-dev-server
+or you probably dont need to, because the app has hot reloaded already
+
+
+## Step 4: Refactor for scaling.
+The app has been basically one file up to now, and its time to do some refactoring.
+Now, we modularize the app a bit to enable it to grow. Some refactorings may seem a bit
+premature at the moment, but we will need this structure soon.
+
+
+## Next step: Keep state when hot reloading
