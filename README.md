@@ -83,5 +83,8 @@ The app has been basically one file up to now, and its time to do some refactori
 Now, we modularize the app a bit to enable it to grow. Some refactorings may seem a bit
 premature at the moment, but we will need this structure soon.
 
+## Step 5: Keep state when hot reloading
+Try to increment counter and then change for instance the hello header.
+The app reloads without losing state!
 
 ## Next step: Keep state when hot reloading
