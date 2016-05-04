@@ -72,19 +72,22 @@ but it remains naiive on state handling - hot-reload resets all state.
 We will change that later.
 
 
-As usual, you run it with
-- npm install
-- webpack-dev-server
-or you probably dont need to, because the app has hot reloaded already
-
-
 ## Step 4: Refactor for scaling.
 The app has been basically one file up to now, and its time to do some refactoring.
 Now, we modularize the app a bit to enable it to grow. Some refactorings may seem a bit
 premature at the moment, but we will need this structure soon.
 
+
 ## Step 5: Keep state when hot reloading
 Try to increment counter and then change for instance the hello header.
 The app reloads without losing state!
 
-## Next step: Keep state when hot reloading
+
+## Step 6: Get time machine up and running
+Do the small change and install the 'Redux DevTools' chrome plugin.
+See https://github.com/gaearon/redux-devtools.
+Check out the redux tab in chrome developer tools, and see that the time machine is working!
+(You may also find the 'React developer tools' chrome plugin useful)
+
+
+## Next step: Add redux-thunk for asynchronous event dispatch

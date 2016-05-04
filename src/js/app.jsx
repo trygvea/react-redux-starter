@@ -9,7 +9,10 @@ import storage from './util/storage';
 const APP_STORAGE_KEY = 'react-redux-starter';
 var initialState = storage.get(APP_STORAGE_KEY) || {}
 
-const store = createStore(rootReducer, initialState)
+const store = createStore(
+    rootReducer,
+    initialState,
+    window.devToolsExtension ? window.devToolsExtension() : undefined)
 
 store.subscribe(() => {
     //console.group("Saving changed state, new state is");console.log(store.getState().toJS());console.groupEnd();
