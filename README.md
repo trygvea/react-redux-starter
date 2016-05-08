@@ -89,5 +89,8 @@ See https://github.com/gaearon/redux-devtools.
 Check out the redux tab in chrome developer tools, and see that the time machine is working!
 (You may also find the 'React developer tools' chrome plugin useful)
 
+## Step 7: Add redux-thunk for asynchronous event dispatch.
+Also added some asynchronous event handling (geolocation) to show how tidy event handling can be.
+And added babel-preset-stage-2 to get es6+ spread operator.
 
 ## Next step: Add redux-thunk for asynchronous event dispatch
