@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux-immutable'   // regular redux combineReducers doesnt work with immutable
 import hello from './hello'
 import geolocation from './geolocation'
 

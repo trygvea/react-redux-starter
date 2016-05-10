@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import { Provider, connect } from 'react-redux'
+import Immutable from 'immutable'
 import HelloRedux from './components/helloRedux'
 import rootReducer from './reducers';
 import { fetchGeolocation } from './actions';
@@ -13,7 +14,7 @@ var initialState = storage.get(APP_STORAGE_KEY) || {}
 
 const store = createStore(
     rootReducer,
-    initialState,
+    Immutable.fromJS(initialState),
     compose (
         applyMiddleware(thunkMiddleware), // lets us dispatch() functions
         window.devToolsExtension ? window.devToolsExtension() : undefined

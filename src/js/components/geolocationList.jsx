@@ -5,13 +5,13 @@ const GeolocationList = ({locations}) =>
     <div>
         <ul>
             {locations.map ((loc, listIndex) =>
-                <li key={listIndex}>Lat: {loc.lat}, Long:{loc.long}</li>
+                <li key={listIndex}>Lat: {loc.get('lat')}, Long:{loc.get('long')}</li>
             )}
         </ul>
     </div>
 
 const mapStateToProps = (state, ownProps) => ({
-    locations: state.geolocation ? state.geolocation.locations || [] : []
+    locations: state.getIn(['geolocation','locations']) || []
 })
 
 export default connect(mapStateToProps)(GeolocationList)

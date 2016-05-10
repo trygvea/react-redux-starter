@@ -1,38 +1,31 @@
+import Immutable, { Map, List } from 'immutable';
 import * as types from '../actions';
 
-export default function(state = {}, action = {}) {
+export default function(state = Map(), action = {}) {
     switch (action.type) {
 
         case types.FETCH_GEOLOCATION_START:
-            return {
-                ...state,
-                status: 'STARTING',
-                lastError: null
-            }
+            return state.set('status', 'STARTING')
+                        .set('lastError', null)
 
         case types.FETCH_GEOLOCATION_NOT_AVAILABLE:
-            return {
-                ...state,
-                status: 'N/A'
-            }
+            return state.set('status', 'N/A')
 
         case types.FETCH_GEOLOCATION_FAILURE:
-            return {
-                ...state,
-                status: 'STARTING',
-                lastError: action.error
-            }
+            return state.set('status', 'FAILURE')
+                        .set('lastError', action.error)
 
         case types.FETCH_GEOLOCATION_SUCCESS:
-            const newLocation = {
-                timestamp: action.location.timestamp,
-                lat: action.location.coords.latitude,
-                long: action.location.coords.longitude}
-            return {
-                status: 'OK',
-                lastError: null,
-                locations: [...state.locations || [], newLocation]
-            }
+            return state.set('status', 'OK')
+                        .set('lastError', null)
+                        .update('locations', locations => locations ? locations : List())
+                        .update('locations',
+                            locations => locations.push(Immutable.fromJS({
+                                    timestamp: action.location.timestamp,
+                                    lat: action.location.coords.latitude,
+                                    long: action.location.coords.longitude
+                                }))
+                        )
 
         default:
             return state;

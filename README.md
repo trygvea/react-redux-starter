@@ -89,8 +89,42 @@ See https://github.com/gaearon/redux-devtools.
 Check out the redux tab in chrome developer tools, and see that the time machine is working!
 (You may also find the 'React developer tools' chrome plugin useful)
 
+
 ## Step 7: Add redux-thunk for asynchronous event dispatch.
 Also added some asynchronous event handling (geolocation) to show how tidy event handling can be.
 And added babel-preset-stage-2 to get es6+ spread operator.
 
-## Next step: Add redux-thunk for asynchronous event dispatch
+
+## Step 8: Introduce immutable.js for more efficient state handling
+
+Using the es6+ spread operator makes writing reducers quite pleasent. You may shoot yourself
+in the foot by mutating the state, or you can even make tests with deepFreeze() to prevent you from such.
+
+If you want to make use of immutable data structures, an option is immutable.js. This step
+walks through how to do that.
+
+One thing tha may seem bloaty when using immutable.js is that every state accessor have to use
+state.get('data') (in stead of just state.data). You could use .toJS() on the sub-structures
+you will access, for instance in react components, but this is strongly discouraged in general
+because it goes deep. You may use .toObject() for a shallow version.
+
+Also, when using immutable.js, you should consider using PureRenderMixin, that makes sure your
+shouldComponentUpdate only compares objects shallowly.
+We have not used PureRenderMixin here, primarily because all our react components are stateless
+functions, which react kind of recommends. Check out https://github.com/facebook/react/issues/5677
+for details.
+
+Note the use of combineReducers from redux-immutable in reducers/index. This is important!
+
+> Note that you probably need to clear your browsers localstorage before the new version will work.
+
+
+## Future steps
+Future versions may cover:
+* Add proptypes on react-components
+* add logger middleware
+* use normalizr
+* integration with servers such as java, rails, grails
+* Do something sensible with the geolocations that we thoroughly fetch and save.
+
+

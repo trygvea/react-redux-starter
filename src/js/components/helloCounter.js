@@ -8,7 +8,7 @@ const HelloCounter = props =>
     </button>
 
 const mapStateToProps = (state, ownProps) => ({
-    value: state.hello ? state.hello.counter : 0
+    value: state.getIn(['hello', 'counter']) || 0
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

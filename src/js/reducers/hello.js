@@ -1,9 +1,10 @@
+import { Map } from 'immutable';
 import * as types from '../actions';
 
-export default (state = {counter:0}, action = {}) => {
+export default (state = Map().set('counter',0), action = {}) => {
     switch (action.type) {
         case types.HELLO_INCREMENT:
-            return {counter: state.counter+1}
+            return state.update('counter', counter => counter + 1)
         default:
             return state
     }
